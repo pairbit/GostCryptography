@@ -35,7 +35,7 @@ encrypt XML documents.
 
 - Windows 10 x64, CryptoPro CSP 4.0.9963
 - Windows 10 x64, ViPNet CSP 4.2.8.51670
-- Linux CentOS 7.7.1908 (Core) x64, CryptoPro CSP 5.0
+- Linux CentOS 7.7.1908 (Core) x64, CryptoPro CSP 5.0.0.0.11944
 
 ## Build instructions
 
