@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Runtime.InteropServices;
 using System.Security;
 using System.Security.Cryptography;
@@ -31,8 +32,9 @@ namespace GostCryptography.Native
 				var providerHandle = GetProviderHandle(providerType);
 				return !providerHandle.IsInvalid;
 			}
-			catch
+			catch (Exception ex)
 			{
+				ExceptionUtility.Log($"Check Installed '{providerType}'", ex);
 				return false;
 			}
 		}

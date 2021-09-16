@@ -1,10 +1,41 @@
-﻿using System;
+﻿using GostCryptography.Base;
+using System;
+using System.Collections.Generic;
+using System.IO;
 using System.Security.Cryptography;
 
 namespace GostCryptography
 {
 	static class ExceptionUtility
 	{
+		private static String logPath = Environment.GetEnvironmentVariable("LogPath", EnvironmentVariableTarget.Process);
+
+		static ExceptionUtility()
+        {
+			if (logPath == null) return;
+			logPath = Path.Combine(Path.GetFullPath(logPath), Environment.MachineName, "GostCryptography.log");
+		}
+
+		public static void Log(string msg, Exception ex = null)
+		{
+			if (logPath == null) return;
+
+			var errors = new List<string>();
+			if (ex != null) Messages(errors, ex);
+			var errorAll = string.Join(Environment.NewLine, errors);
+			var time = DateTime.Now.ToString("dd.MM.yyyy HH:mm:ss");
+			msg = $"[{time}] " + msg;
+			if (errors.Count > 0) msg += Environment.NewLine + errorAll;
+			
+			File.AppendAllText(logPath, msg + Environment.NewLine);
+		}
+
+		private static void Messages(IList<string> errors, Exception ex)
+		{
+			errors.Add(ex.Message);
+			if (ex.InnerException != null) Messages(errors, ex.InnerException);
+		}
+
 		public static ArgumentException Argument(string argument, string message = null, params object[] messageParameters)
 		{
 			return new ArgumentException(FormatErrorMessage(message, messageParameters), argument);
