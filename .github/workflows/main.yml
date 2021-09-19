@@ -1,0 +1,32 @@
+name: CI
+
+on:
+  push:
+    branches: [ master ]
+  pull_request:
+    branches: [ master ]
+
+  workflow_dispatch:
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@v2
+      - name: Setup .NET
+        uses: actions/setup-dotnet@v1
+        with:
+          dotnet-version: 5.0.102
+    
+      - name: Install dependencies
+        run: dotnet restore GostCryptography.sln
+    
+      - name: Build
+        run: dotnet build GostCryptography.sln --configuration Release --no-restore 
+    
+      - name: Publish
+        uses: brandedoutcast/publish-nuget@v2.5.2
+        with:
+            PROJECT_FILE_PATH: Source/GostCryptography/GostCryptography.csproj
+            NUGET_KEY: ${{secrets.NUGET}}
