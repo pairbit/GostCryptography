@@ -4,7 +4,7 @@
     <TargetFramework>net5.0</TargetFramework>
     <AllowUnsafeBlocks>true</AllowUnsafeBlocks>
     <AssemblyTitle>GostCryptography</AssemblyTitle>
-    <Product>GostCryptography</Product>
+    <Product>IT.GostCryptography</Product>
     <AssemblyVersion>5.0.9.0</AssemblyVersion>
     <FileVersion>5.0.9.0</FileVersion>
     <GenerateDocumentationFile>true</GenerateDocumentationFile>
@@ -12,18 +12,19 @@
 
   <PropertyGroup>
     <NoWarn>1701;1702;1591</NoWarn>
-    <PackageId>GostCryptography</PackageId>
+    <PackageId>IT.GostCryptography</PackageId>
     <Title>GostCryptography</Title>
     <Version>5.0.9</Version>
-    <Authors>Alexander Mezhov</Authors>
+    <Authors>Alexander Mezhov, Ivan Tikhonov</Authors>
     <Company />
-    <Description>.NET driver for ViPNet CSP and CryptoPro CSP. Implements crypto algorithms based on Russian national cryptographic standards GOST 28147-89, GOST R 34.10 and GOST R 34.11. Also provides abstractions to sign and verify CMS/PKCS #7 messages, sign, verify and encrypt XML documents.</Description>
+    <Description>.NET 5.0 driver for ViPNet CSP and CryptoPro CSP (Linux &amp; Windows).
+Migrated https://www.nuget.org/packages/GostCryptography to .NET 5</Description>
     <PackageLicenseExpression>MIT</PackageLicenseExpression>
-    <PackageProjectUrl>https://github.com/AlexMAS/GostCryptography</PackageProjectUrl>
+    <PackageProjectUrl>https://github.com/pairbit/IT.GostCryptography</PackageProjectUrl>
     <NeutralLanguage></NeutralLanguage>
     <PackageTags>GOST GOST-2012 Cryptography ViPNet CryptoPro</PackageTags>
     <RepositoryType>git</RepositoryType>
-    <RepositoryUrl>https://github.com/AlexMAS/GostCryptography</RepositoryUrl>
+    <RepositoryUrl>https://github.com/pairbit/IT.GostCryptography</RepositoryUrl>
     <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
   </PropertyGroup>
 
