@@ -1,19 +1,19 @@
-﻿using GostCryptography.Base;
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Security.Cryptography;
 
 namespace GostCryptography
 {
-	static class ExceptionUtility
+    static class ExceptionUtility
 	{
-		private static String logPath = Environment.GetEnvironmentVariable("LogPath", EnvironmentVariableTarget.Process);
+		private static readonly String logPath;
 
 		static ExceptionUtility()
-        {
-			if (logPath == null) return;
-			logPath = Path.Combine(Path.GetFullPath(logPath), Environment.MachineName, "GostCryptography.log");
+		{
+			logPath = Environment.GetEnvironmentVariable("LogPath", EnvironmentVariableTarget.Process);
+
+			if (logPath != null) logPath = Path.GetFullPath(logPath);
 		}
 
 		public static void Log(string msg, Exception ex = null)
@@ -26,8 +26,11 @@ namespace GostCryptography
 			var time = DateTime.Now.ToString("dd.MM.yyyy HH:mm:ss");
 			msg = $"[{time}] " + msg;
 			if (errors.Count > 0) msg += Environment.NewLine + errorAll;
-			
-			File.AppendAllText(logPath, msg + Environment.NewLine);
+
+			var dirInfo = new DirectoryInfo(logPath);
+			if (!dirInfo.Exists) dirInfo.Create();
+
+			File.AppendAllText(Path.Combine(logPath, "GostCryptography.log"), msg + Environment.NewLine);
 		}
 
 		private static void Messages(IList<string> errors, Exception ex)

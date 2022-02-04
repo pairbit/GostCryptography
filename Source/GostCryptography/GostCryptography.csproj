@@ -5,8 +5,8 @@
     <AllowUnsafeBlocks>true</AllowUnsafeBlocks>
     <AssemblyTitle>GostCryptography</AssemblyTitle>
     <Product>IT.GostCryptography</Product>
-    <AssemblyVersion>5.0.9.0</AssemblyVersion>
-    <FileVersion>5.0.9.0</FileVersion>
+    <AssemblyVersion>5.0.10.0</AssemblyVersion>
+    <FileVersion>5.0.10.0</FileVersion>
     <GenerateDocumentationFile>true</GenerateDocumentationFile>
   </PropertyGroup>
 
@@ -14,7 +14,7 @@
     <NoWarn>1701;1702;1591</NoWarn>
     <PackageId>IT.GostCryptography</PackageId>
     <Title>GostCryptography</Title>
-    <Version>5.0.9</Version>
+    <Version>5.0.10</Version>
     <Authors>Alexander Mezhov, Ivan Tikhonov</Authors>
     <Company />
     <Description>.NET 5.0 driver for ViPNet CSP and CryptoPro CSP (Linux &amp; Windows).
