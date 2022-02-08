@@ -94,7 +94,7 @@ namespace GostCryptography.Pkcs
 			return _signedCms.Encode();
 		}
 
-		/// <inheritdoc cref="SignedCms.Decode"/>
+		///// <inheritdoc cref="SignedCms.Decode"/>
 		public void Decode(byte[] encodedMessage)
 		{
 			_signedCms.Decode(encodedMessage);
